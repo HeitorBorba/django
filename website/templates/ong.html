@@ -1,0 +1,61 @@
+{% extends 'shared/layout.html' %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'estilo.css' %}">
+    <title>Document</title>
+</head>
+<body>
+        
+        {% block conteudo  %}
+        
+            {% if nome %}
+                <h1>Bem-Vindx {{nome}}</h1>
+            {% else %}
+                <h1>Bem-Vindx ao PETISK</h1>
+            {% endif %}
+            <div>
+            <form action="" method="post">
+                    {% csrf_token %}
+                <label for="">Nome da ong:</label>
+                <input type="text" name="nome_ong" required>
+
+                <label for="">Nome do responsavel</label>
+                <input type="text" name="resp_ong" required>
+
+                <label for="">Email:</label>
+                <input type="email" name="email_ong" required>
+        
+                <label for="">CEP:</label>
+                <input type="text" name="str_cep_ong" maxlength="5" required>
+        
+                <label for="">numero</label>
+                <input type="text" name="str_numero_ong" maxlength="8" required>
+        
+                <label for="">Complemento:</label>
+                <input type="text" name="complemento_ong" required>
+                
+                <label for="">Horario de funcionamtento</label>
+                <input type="text" name="hrs_ong" required>
+
+                <label for="">telefone</label>
+                <input type="text" name="telefone_ong" maxlength="8" required>
+
+                <label for="">Trabalho:</label>
+                <textarea name=trabalho_ong" id="" cols="30" rows="10" maxlength="2000" required></textarea>
+        
+                <input type="submit" value="Cadastrar">     
+        
+            </form>
+            </div>
+        
+        {% endblock %}
+
+    
+</body>
+</html>
