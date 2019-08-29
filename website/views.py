@@ -29,3 +29,11 @@ def pagina_index(request):
 
     
     return render(request, 'index.html')
+
+def pessoas(request):
+    pessoas = Pessoa.objects.filter(ativo=True).all()
+    
+    contexto = {
+        'pessoas': pessoas
+    }
+    return render(request, '/pessoas.html', contexto)

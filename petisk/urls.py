@@ -20,5 +20,6 @@ from website import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.pagina_index)
+    path('',views.pagina_index),
+    path('pessoas/',views.pessoas),
 ]
