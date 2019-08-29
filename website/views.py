@@ -53,20 +53,20 @@ def pagina_ong(request):
 
 
     if request.method == 'POST':
-        ongs = Ongs()
-        ongs.resp_ong = request.POST.get('resp_ong')
-        ongs.nome_ong = request.POST.get('nome_ong')
-        ongs.email_ong = request.POST.get('email_ong')
-        ongs.str_cep_ong = request.POST.get('str_cep_ong')
-        ongs.str_numero_ong = request.POST.get('str_numero_ong')
-        ongs.complemento_ong = request.POST.get('complemento_ong')
-        ongs.telefone_ong = request.POST.get('telefone_ong')        
-        ongs.trabalho_ong = request.POST.get('trabalho_ong')
-        ongs.hrs_ong = request.POST.get('hrs_ong')
-        ongs.save()
+        ong = Ongs()
+        ong.resp_ong = request.POST.get('resp_ong')
+        ong.nome_ong = request.POST.get('nome_ong')
+        ong.email_ong = request.POST.get('email_ong')
+        ong.str_cep_ong = request.POST.get('str_cep_ong')
+        ong.str_numero_ong = request.POST.get('str_numero_ong')
+        ong.complemento_ong = request.POST.get('complemento_ong')
+        ong.telefone_ong = request.POST.get('telefone_ong')        
+        ong.trabalho_ong = request.POST.get('trabalho_ong')
+        ong.hrs_ong = request.POST.get('hrs_ong')
+        ong.save()
 
         contexto = {
-            'nome': ongs.nome
+            'nome': ong.nome
         }
         return render(request, 'ong.html', contexto)
 
@@ -74,8 +74,8 @@ def pagina_ong(request):
     
     return render(request, 'ong.html')
 
-def Ongs(request):
-    ongs = Ong.objects.filter(ativo=True).all()
+def pagina_ong(request):
+    ongs = Ongs.objects.filter(ativo=True).all()
     
     contexto = {
         'ongs': ongs
